@@ -5,6 +5,8 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon,FaSun } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
+import { SignedIn,SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import {dark, light } from '@clerk/themes'
 
 
 export default function Header() {
@@ -37,11 +39,17 @@ export default function Header() {
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark' )}>
           {theme === 'light' ? <FaSun/> : <FaMoon/>}               {/* light and dark mode added here */}                                            
         </Button>
+
+        <SignedIn>
+          <UserButton/>
+        </SignedIn> 
+        <SignedOut>
         <Link href="/sign-in">
           <Button gradientDuoTone="purpleToBlue" outline>
-            Sign In
+            <SignInButton/>
           </Button>
         </Link>
+        </SignedOut>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
