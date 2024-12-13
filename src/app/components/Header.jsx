@@ -5,7 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon,FaSun } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { setTheme } from "flowbite-react/dist/types/theme-store";
+
 
 export default function Header() {
   const path = usePathname();
@@ -19,7 +19,7 @@ export default function Header() {
         <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
           HacFy
         </span>
-        <span className="text-black">Blog</span>
+        <span className="text-black dark:text-white">Blog</span>
       </Link>
       <form>
         <TextInput
@@ -35,7 +35,7 @@ export default function Header() {
       <div className="flex gap-2 md:order-2">
         <Button className="w-12 h-10 hidden sm:inline" color="gray" pill 
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark' )}>
-          {theme === 'light' ? <FaSun/> : <FaMoon/>}
+          {theme === 'light' ? <FaSun/> : <FaMoon/>}               {/* light and dark mode added here */}                                            
         </Button>
         <Link href="/sign-in">
           <Button gradientDuoTone="purpleToBlue" outline>
