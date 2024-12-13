@@ -35,6 +35,9 @@ https://medium.com/@skarka90/the-ultimate-guide-to-hydration-and-hydration-error
 Clerk Integration Documentation
 https://clerk.com/docs/references/nextjs/custom-signup-signin-pages
 
+Clerk Webhooks
+https://clerk.com/docs/webhooks/sync-data
+
 
 ## Deploy on Vercel
 
