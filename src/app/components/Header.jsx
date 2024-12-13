@@ -41,14 +41,19 @@ export default function Header() {
         </Button>
 
         <SignedIn>
-          <UserButton/>
+          <UserButton
+          appearance={
+            {
+              baseTheme: theme === 'light' ? light : dark,
+            }
+          }/>
         </SignedIn> 
         <SignedOut>
-        <Link href="/sign-in">
+          <Link href='/sign-in'>
           <Button gradientDuoTone="purpleToBlue" outline>
-            <SignInButton/>
+            Sign In
           </Button>
-        </Link>
+          </Link>
         </SignedOut>
         <Navbar.Toggle />
       </div>
