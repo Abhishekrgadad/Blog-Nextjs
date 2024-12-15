@@ -1,5 +1,7 @@
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
+import { createOrUpdateUser } from '@/app/lib/actions/user'
+import { clerkClient } from '@clerk/nextjs/dist/types/server'
 
 
 export async function POST(req) {
@@ -63,12 +65,47 @@ export async function POST(req) {
     } = evt?.data;
 
     try {
-      
-    } catch (error) {
+      const user = await createOrUpdateUser(
+        id,
+        first_name,
+        last_name,
+        image_url,
+        email_addresses,
+        username,
+      )
+
+      if(user && eventType === 'user.created') {
+        try{
+          await clerkClient.users.updateUserMetadata(id,
+            {
+              publicMetadata:{
+                userMongoId: user._id,
+                isAdmin: user.isAdmin,
+              }
+            }
+          )
+        }
+         catch (error) {
+      console.log('Error updating user metadata:', error);
       
     }
   }
+} catch (error) {
+  console.log('Error creating or updating user:', error);
+  return new Response('Error occured', {status:400});
+    
+  }
+  }
 
+  if(eventType === 'user.deleted') {
+    const { id } = evt?.data;
+    try {
+      await deleteUser(id);
+    } catch (error) {
+      console.log('Error deleting user:', error);
+      return new Response('Error occured', {status:400});
+    }
+  }
 
 
   return new Response('', { status: 200 });
