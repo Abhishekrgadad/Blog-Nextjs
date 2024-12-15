@@ -38,6 +38,8 @@ https://clerk.com/docs/references/nextjs/custom-signup-signin-pages
 Clerk Webhooks
 https://clerk.com/docs/webhooks/sync-data
 
+Change the version of clerk to 5.7.5 as there is some issue with new version in generating the Metadata.
+
 
 ## Deploy on Vercel
 
