@@ -43,7 +43,7 @@ import 'react-quill-new/dist/quill.snow.css';
               gradientDuoTone='purpleToBlue'
               size='sm'
               outline
-              ></Button>
+              > Upload Image </Button>
             </div>
 
             <ReactQuill 
