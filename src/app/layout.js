@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
+import Header from "../components/Header";
 import { ThemeProvider } from "next-themes";
-import ThemeCom from "./components/ThemeCom";
+import ThemeCom from "../components/ThemeCom";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeModeScript } from "flowbite-react";
 
